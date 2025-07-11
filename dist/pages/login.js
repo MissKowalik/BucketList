@@ -23,4 +23,22 @@ toggleBtn === null || toggleBtn === void 0 ? void 0 : toggleBtn.addEventListener
     }
     ;
 });
+// adding event listener for form submission
+loginForm === null || loginForm === void 0 ? void 0 : loginForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const trimmedUser = userName.value.trim();
+    const passwordLength = password.value.length;
+    // name validation
+    if (trimmedUser === "") {
+        nameErrMsg.style = "display: display";
+        return;
+    }
+    ;
+    // password validation
+    if (passwordLength < 4) {
+        passwordErrMss.style = "display: display";
+        return;
+    }
+    ;
+});
 //# sourceMappingURL=Login.js.map
