@@ -1,5 +1,5 @@
 "use strict";
-// när användaren kommer in på sidan (DOMen laddats in), ska den omdirigeras till index.html 
+// när användaren kommer in på sidan (DOMen laddats in), ska den omdirigeras till login.html 
 window.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => {
         window.location.replace('pages/login.html');
