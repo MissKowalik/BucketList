@@ -33,7 +33,8 @@ loginForm === null || loginForm === void 0 ? void 0 : loginForm.addEventListener
         return;
     }
     ;
-    // if all okay storing username globally
-    user.name = trimmedUser;
+    // if all okay 
+    user.name = trimmedUser; // storing username globally
+    window.location.replace('./dashboard.html'); //redirect user to dashboard
 });
 //# sourceMappingURL=Login.js.map

@@ -36,6 +36,7 @@ loginForm?.addEventListener("submit", (event: Event) => {
         return;
     };
 
-    // if all okay storing username globally
-    user.name = trimmedUser;
-})
+    // if all okay 
+    user.name = trimmedUser; // storing username globally
+    window.location.replace('./dashboard.html'); //redirect user to dashboard
+});
