@@ -13,4 +13,14 @@ const password = document.getElementById("password");
 const toggleBtn = document.querySelector(".toggle-password");
 const nameErrMsg = document.getElementById("username-error-message");
 const passwordErrMss = document.getElementById("password-error-message");
+// implementing the show/hide password toggle
+toggleBtn === null || toggleBtn === void 0 ? void 0 : toggleBtn.addEventListener("click", () => {
+    if (password.type === "password") {
+        password.type = "text";
+    }
+    else if (password.type === "text") {
+        password.type = "password";
+    }
+    ;
+});
 //# sourceMappingURL=Login.js.map

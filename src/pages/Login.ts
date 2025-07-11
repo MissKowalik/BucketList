@@ -15,3 +15,12 @@ const password = document.getElementById("password") as HTMLInputElement;
 const toggleBtn = document.querySelector(".toggle-password");
 const nameErrMsg = document.getElementById("username-error-message") as HTMLParagraphElement;
 const passwordErrMss = document.getElementById("password-error-message") as HTMLParagraphElement;
+
+// implementing the show/hide password toggle
+toggleBtn?.addEventListener("click", () => {
+    if (password.type === "password") {
+        password.type = "text";
+    } else if (password.type === "text") {
+        password.type = "password";
+    };
+});
