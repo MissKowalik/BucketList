@@ -1,5 +1,8 @@
 export const themes = ["teknikdrömmar", "vardagsdrömmar", "husdrömmar", "sportdrömmar", "resdrömmar"];
 export let name = "NAMN";
+export const user = {
+    name: ""
+};
 export const dreams = [{
         id: 1,
         name: "Lära mig HTML/CSS",

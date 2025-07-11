@@ -1,33 +1,26 @@
-"use strict";
-// Det första användaren gör är att logga in med ett namn. Vi använder ingen backend eller inloggning på riktigt, utan:
-// ✅ Användaren skriver in sitt namn
-// ✅ Det namnet sparas i en global variabel (name) som resten av appen kan använda
-// ✅ Lösenordet finns bara som ett formulärfält och ska kunna visas/döljas med ett klick
-// 🧪 Validering
-// Namn får inte vara tomt
-// Lösenord måste innehålla minst 4 tecken (t.ex.)
+import { user } from "../variables";
 // selecting form elements
 const loginForm = document.querySelector("form");
-const userName = document.getElementById("username");
-const password = document.getElementById("password");
+const nameInput = document.getElementById("username");
+const pwInput = document.getElementById("password");
 const toggleBtn = document.querySelector(".toggle-password");
 const nameErrMsg = document.getElementById("username-error-message");
 const passwordErrMss = document.getElementById("password-error-message");
 // implementing the show/hide password toggle
 toggleBtn === null || toggleBtn === void 0 ? void 0 : toggleBtn.addEventListener("click", () => {
-    if (password.type === "password") {
-        password.type = "text";
+    if (pwInput.type === "password") {
+        pwInput.type = "text";
     }
-    else if (password.type === "text") {
-        password.type = "password";
+    else if (pwInput.type === "text") {
+        pwInput.type = "password";
     }
     ;
 });
 // adding event listener for form submission
 loginForm === null || loginForm === void 0 ? void 0 : loginForm.addEventListener("submit", (event) => {
     event.preventDefault();
-    const trimmedUser = userName.value.trim();
-    const passwordLength = password.value.length;
+    const trimmedUser = nameInput.value.trim();
+    const passwordLength = pwInput.value.length;
     // name validation
     if (trimmedUser === "") {
         nameErrMsg.style = "display: display";
@@ -40,5 +33,7 @@ loginForm === null || loginForm === void 0 ? void 0 : loginForm.addEventListener
         return;
     }
     ;
+    // if all okay storing username globally
+    user.name = trimmedUser;
 });
 //# sourceMappingURL=Login.js.map
