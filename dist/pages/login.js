@@ -14,13 +14,13 @@ toggleBtn === null || toggleBtn === void 0 ? void 0 : toggleBtn.addEventListener
     else if (pwInput.type === "text") {
         pwInput.type = "password";
     }
-    ;
 });
 // adding event listener for form submission
 loginForm === null || loginForm === void 0 ? void 0 : loginForm.addEventListener("submit", (event) => {
     event.preventDefault();
     const trimmedUser = nameInput.value.trim();
     const passwordLength = pwInput.value.length;
+    const minPwLength = 4;
     // resetting error messages
     nameErrMsg.style.display = "none";
     passwordErrMss.style.display = "none";
@@ -29,13 +29,11 @@ loginForm === null || loginForm === void 0 ? void 0 : loginForm.addEventListener
         nameErrMsg.style = "display: block";
         return;
     }
-    ;
     // password validation
-    if (passwordLength < 4) {
+    if (passwordLength < minPwLength) {
         passwordErrMss.style = "display: block";
         return;
     }
-    ;
     // if all okay 
     user.name = trimmedUser; // storing username globally
     window.location.replace('./dashboard.html'); //redirect user to dashboard

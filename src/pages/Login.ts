@@ -14,7 +14,7 @@ toggleBtn?.addEventListener("click", () => {
         pwInput.type = "text";
     } else if (pwInput.type === "text") {
         pwInput.type = "password";
-    };
+    }
 });
 
 // adding event listener for form submission
@@ -23,6 +23,7 @@ loginForm?.addEventListener("submit", (event: Event) => {
 
     const trimmedUser = nameInput.value.trim();
     const passwordLength = pwInput.value.length;
+    const minPwLength = 4; 
 
     // resetting error messages
     nameErrMsg.style.display = "none";
@@ -32,13 +33,13 @@ loginForm?.addEventListener("submit", (event: Event) => {
     if (trimmedUser === "") {
         nameErrMsg.style = "display: block";
         return;
-    };
+    }
 
     // password validation
-    if (passwordLength < 4) {
+    if (passwordLength < minPwLength) {
         passwordErrMss.style = "display: block";
         return;
-    };
+    }
 
     // if all okay 
     user.name = trimmedUser; // storing username globally
