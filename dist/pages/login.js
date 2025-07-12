@@ -1,4 +1,4 @@
-import { user } from "../variables";
+import { user } from "../variables.js";
 // selecting form elements
 const loginForm = document.querySelector("form");
 const nameInput = document.getElementById("username");
