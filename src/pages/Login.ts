@@ -24,15 +24,19 @@ loginForm?.addEventListener("submit", (event: Event) => {
     const trimmedUser = nameInput.value.trim();
     const passwordLength = pwInput.value.length;
 
+    // resetting error messages
+    nameErrMsg.style.display = "none";
+    passwordErrMss.style.display = "none";
+
     // name validation
     if (trimmedUser === "") {
-        nameErrMsg.style = "display: display";
+        nameErrMsg.style = "display: block";
         return;
     };
 
     // password validation
     if (passwordLength < 4) {
-        passwordErrMss.style = "display: display";
+        passwordErrMss.style = "display: block";
         return;
     };
 
