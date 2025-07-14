@@ -6,7 +6,8 @@ const nameInput = document.getElementById("username") as HTMLInputElement;
 const pwInput = document.getElementById("password") as HTMLInputElement;
 const toggleBtn = document.querySelector(".toggle-password");
 const nameErrMsg = document.getElementById("username-error-message") as HTMLParagraphElement;
-const passwordErrMss = document.getElementById("password-error-message") as HTMLParagraphElement;
+const pwErrMss = document.getElementById("password-error-message") as HTMLParagraphElement;
+
 
 // implementing the show/hide password toggle
 toggleBtn?.addEventListener("click", () => {
@@ -22,12 +23,13 @@ loginForm?.addEventListener("submit", (event: Event) => {
     event.preventDefault()
 
     const trimmedUser = nameInput.value.trim();
-    const passwordLength = pwInput.value.length;
+    const trimmedPw = pwInput.value.trim()
+    const pwLength = pwInput.value.length;
     const minPwLength = 4; 
 
     // resetting error messages
     nameErrMsg.style.display = "none";
-    passwordErrMss.style.display = "none";
+    pwErrMss.style.display = "none";
 
     // name validation
     if (trimmedUser === "") {
@@ -36,8 +38,8 @@ loginForm?.addEventListener("submit", (event: Event) => {
     }
 
     // password validation
-    if (passwordLength < minPwLength) {
-        passwordErrMss.style = "display: block";
+    if (pwLength < minPwLength || trimmedPw === "") {
+        pwErrMss.style = "display: block";
         return;
     }
 
@@ -45,3 +47,5 @@ loginForm?.addEventListener("submit", (event: Event) => {
     user.name = trimmedUser; // storing username globally
     window.location.replace('./dashboard.html'); //redirect user to dashboard
 });
+
+
