@@ -1,6 +1,6 @@
 // här är det bara level-up!
 import { name, themes } from "../variables.js";
-import { logOut } from "../utils/UserLogin.js";
+import { logOut } from "../utils/navigation.js";
 const nameInput = document.getElementById("name-input");
 nameInput.value = name;
 const themeList = document.getElementById("theme-list");
