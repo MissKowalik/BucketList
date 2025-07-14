@@ -1,4 +1,4 @@
-import { name, user } from "../variables.js";
+import { user } from "../variables.js";
 import { isNameValid, isPwValid } from "../utils/validation.js";
 
 // selecting form elements
@@ -33,6 +33,7 @@ loginForm.addEventListener("submit", (event: Event) => {
 
     if (nameValid && pwValid) {
         user.name = nameInput.value.trim(); // storing username globally
+        localStorage.setItem("username", user.name);
         window.location.replace('./dashboard.html'); //redirect user to dashboard
     } else {
         return;

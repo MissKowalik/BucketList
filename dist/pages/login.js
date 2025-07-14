@@ -26,6 +26,7 @@ loginForm.addEventListener("submit", (event) => {
     const pwValid = isPwValid(pwInput.value, pwErrMss);
     if (nameValid && pwValid) {
         user.name = nameInput.value.trim(); // storing username globally
+        localStorage.setItem("username", user.name);
         window.location.replace('./dashboard.html'); //redirect user to dashboard
     }
     else {
