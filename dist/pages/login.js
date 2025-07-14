@@ -15,28 +15,50 @@ toggleBtn === null || toggleBtn === void 0 ? void 0 : toggleBtn.addEventListener
         pwInput.type = "password";
     }
 });
-// adding event listener for form submission
-loginForm === null || loginForm === void 0 ? void 0 : loginForm.addEventListener("submit", (event) => {
-    event.preventDefault();
+// function to validate name input
+function isNameValid() {
     const trimmedUser = nameInput.value.trim();
-    const trimmedPw = pwInput.value.trim();
-    const pwLength = pwInput.value.length;
-    const minPwLength = 4;
-    // resetting error messages
-    nameErrMsg.style.display = "none";
-    pwErrMss.style.display = "none";
     // name validation
     if (trimmedUser === "") {
         nameErrMsg.style = "display: block";
-        return;
+        return false;
     }
+    else {
+        nameErrMsg.style = "display: none";
+        return true;
+    }
+}
+;
+// function to validate password input
+function isPwValid() {
+    const trimmedPw = pwInput.value.trim();
+    const pwLength = pwInput.value.length;
+    const minPwLength = 4;
     // password validation
     if (pwLength < minPwLength || trimmedPw === "") {
         pwErrMss.style = "display: block";
+        return false;
+    }
+    else {
+        pwErrMss.style = "display: none";
+        return true;
+    }
+}
+;
+// live validation
+nameInput.addEventListener("input", isNameValid);
+pwInput.addEventListener("input", isPwValid);
+// form submission
+loginForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const nameValid = isNameValid();
+    const pwValid = isPwValid();
+    if (nameValid && pwValid) {
+        user.name = nameInput.value.trim(); // storing username globally
+        window.location.replace('./dashboard.html'); //redirect user to dashboard
+    }
+    else {
         return;
     }
-    // if all okay 
-    user.name = trimmedUser; // storing username globally
-    window.location.replace('./dashboard.html'); //redirect user to dashboard
 });
 //# sourceMappingURL=Login.js.map
