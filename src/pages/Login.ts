@@ -1,4 +1,5 @@
 import { name, user } from "../variables.js";
+import { isNameValid, isPwValid } from "../utils/validation.js";
 
 // selecting form elements
 const loginForm = document.querySelector("form") as HTMLFormElement;
@@ -9,7 +10,7 @@ const nameErrMsg = document.getElementById("username-error-message") as HTMLPara
 const pwErrMss = document.getElementById("password-error-message") as HTMLParagraphElement;
 
 
-// implementing the show/hide password toggle
+// show/hide password toggle
 toggleBtn?.addEventListener("click", () => {
     if (pwInput.type === "password") {
         pwInput.type = "text";
@@ -18,47 +19,17 @@ toggleBtn?.addEventListener("click", () => {
     }
 });
 
-// function to validate name input
-function isNameValid(): boolean {
-    const trimmedUser = nameInput.value.trim();
-
-    // name validation
-    if (trimmedUser === "") {
-        nameErrMsg.style = "display: block";
-        return false;
-    } else {
-        nameErrMsg.style = "display: none";
-        return true;
-    }
-};
-
-// function to validate password input
-function isPwValid(): boolean {
-    const trimmedPw = pwInput.value.trim()
-    const pwLength = pwInput.value.length;
-    const minPwLength = 4; 
-
-    // password validation
-    if (pwLength < minPwLength || trimmedPw === "") {
-        pwErrMss.style = "display: block";
-        return false;
-    } else {
-        pwErrMss.style = "display: none";
-        return true;
-    }
-};
-
 // live validation
-nameInput.addEventListener("input", isNameValid);
-pwInput.addEventListener("input", isPwValid);
+nameInput.addEventListener("input", () => isNameValid(nameInput.value, nameErrMsg));
+pwInput.addEventListener("input", () => isPwValid(pwInput.value, pwErrMss));
 
 
 // form submission
 loginForm.addEventListener("submit", (event: Event) => {
     event.preventDefault();
 
-    const nameValid = isNameValid();
-    const pwValid = isPwValid();
+    const nameValid = isNameValid(nameInput.value, nameErrMsg);
+    const pwValid = isPwValid(pwInput.value, pwErrMss);
 
     if (nameValid && pwValid) {
         user.name = nameInput.value.trim(); // storing username globally
