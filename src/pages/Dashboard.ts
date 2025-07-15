@@ -39,7 +39,7 @@ function renderDreams() {
         const deleteButton = document.createElement("button");
         deleteButton.type = "button";
         const deleteIcon = document.createElement("img");
-        deleteIcon.src = "../assets/trash_delete.png";
+        deleteIcon.src = "../assets/images/trash_delete.png";
         deleteButton.appendChild(deleteIcon);
 
         // append all to li
