@@ -46,16 +46,32 @@ function renderDreams() {
 renderDreams();
 // handle deleting a dream using event delegation
 dreamList.addEventListener("click", (event) => {
-    const target = event.target; // find out what was clicked
+    // find out what was clicked
+    const target = event.target;
     // check if delete button or image inside it was clicked
     if (target.closest(".delete-button")) {
-        const li = target.closest("li"); // find li element tgat holds the clicked dream
+        const li = target.closest("li"); // find li element that holds the clicked dream
         const dreamId = Number(li.dataset.id); // get the id of the dream to delete
         // remove dream from array
         const index = dreams.findIndex((dream) => dream.id === dreamId); // find index of the dream in the array
         if (index !== -1) {
             dreams.splice(index, 1); // if matching dream was found, remove it using splice
             renderDreams(); // re-render after deletion
+        }
+    }
+});
+// handle toggling "checked" state
+dreamList.addEventListener("change", (event) => {
+    const target = event.target;
+    // check if a checkbox was toggled
+    if (target.classList.contains("dream-check")) {
+        const li = target.closest("li");
+        const dreamId = Number(li.dataset.id);
+        // find the dream and update its checked status
+        const dream = dreams.find(d => d.id === dreamId);
+        if (dream) {
+            dream.checked = target.checked;
+            console.log(`Dream "${dream.name}" marked as ${dream.checked ? "fulfilled" : "unfulfilled"}`);
         }
     }
 });
