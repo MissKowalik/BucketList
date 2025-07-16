@@ -1,4 +1,4 @@
-import { renderDreams, deleteDreamById, toggleDreamChecked } from "../services/dreamHandlers.js";
+import { renderDreams, deleteDreamById, toggleDreamChecked } from "../services/dreamService.js";
 // selecting elements
 const userName = document.getElementById("user-name");
 const dreamList = document.querySelector(".dream-list");
