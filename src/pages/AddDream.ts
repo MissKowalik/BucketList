@@ -28,7 +28,7 @@ addDreamForm.addEventListener("submit", (event: Event) => {
 
         // create new Dream object
         const newDream = {
-            id: Date.now();
+            id: Date.now(),
             name: dreamInput.value.trim(),
             theme: themeSelect.value,
             checked: false
