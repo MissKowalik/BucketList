@@ -49,7 +49,7 @@ function renderDreams() {
 }
 // delete dream by ID
 function deleteDreamById(id) {
-    const index = dreams.findIndex((dream) => dream.id === dreamId); // find index of the dream in the array
+    const index = dreams.findIndex((dream) => dream.id === id); // find index of the dream in the array
     if (index !== -1) {
         dreams.splice(index, 1); // if matching dream was found, remove it using splice
         renderDreams(); // re-render after deletion
@@ -57,9 +57,9 @@ function deleteDreamById(id) {
 }
 // update dream's checked status
 function toggleDreamChecked(id, checked) {
-    const dream = dreams.find(d => d.id === dreamId);
+    const dream = dreams.find(d => d.id === id);
     if (dream) {
-        dream.checked = target.checked;
+        dream.checked = checked;
         console.log(`Dream "${dream.name}" marked as ${dream.checked ? "fulfilled" : "unfulfilled"}`);
     }
 }
