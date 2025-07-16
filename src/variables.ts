@@ -1,4 +1,4 @@
-import { Dream } from "./models/Dream";
+import { Dream } from "./models/Dream.js";
 
 export const themes = ["teknikdrömmar", "vardagsdrömmar", "husdrömmar", "sportdrömmar", "resdrömmar"];
 export let name = "NAMN";
