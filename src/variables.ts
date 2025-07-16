@@ -5,7 +5,7 @@ export let name = "Drömmare";
 export const user = {
     name: ""
 };
-export const dreams: Dream[] = [{
+export let dreams: Dream[] = [{
     id: 1,
     name: "Lära mig HTML/CSS",
     theme: "teknikdrömmar",

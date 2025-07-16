@@ -25,23 +25,27 @@ export function isPwValid(password: string, errorEl: HTMLElement, minLength = 4)
 }
 
 // dream input validation
-export function isDreamValid(dream: string, errorEl: HTMLParagraphElement) {
+export function isDreamValid(dream: string, errorEl: HTMLParagraphElement): boolean {
     const trimmedDream = dream.trim();
 
     if (trimmedDream === "") {
         errorEl.style = "display: block";
+        return false;
     } else {
         errorEl.style = "display: none";
+        return true;
     }
 }
 
 // select dream theme validation
-export function isThemeValid(theme: string, errorEl: HTMLParagraphElement) {
+export function isThemeValid(theme: string, errorEl: HTMLParagraphElement): boolean {
     const selectedTheme = theme;
 
     if (!selectedTheme) {
         errorEl.style = "display: block";
+        return false;
     } else {
         errorEl.style = "display: none";
+        return true;
     }
 }
