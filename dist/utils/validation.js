@@ -22,4 +22,24 @@ export function isPwValid(password, errorEl, minLength = 4) {
         return true;
     }
 }
+// dream input validation
+export function isDreamValid(dream, errorEl) {
+    const trimmedDream = dream.trim();
+    if (trimmedDream === "") {
+        errorEl.style = "display: block";
+    }
+    else {
+        errorEl.style = "display: none";
+    }
+}
+// select dream theme validation
+export function isThemeValid(theme, errorEl) {
+    const selectedTheme = theme;
+    if (!selectedTheme) {
+        errorEl.style = "display: block";
+    }
+    else {
+        errorEl.style = "display: none";
+    }
+}
 //# sourceMappingURL=validation.js.map
