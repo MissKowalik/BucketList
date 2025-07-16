@@ -1,16 +1,10 @@
 import { renderDreams, deleteDreamById, toggleDreamChecked } from "../services/dreamService.js";
+import { displayUserName } from "../utils/storage.js";
 // selecting elements
 const userName = document.getElementById("user-name");
 const dreamList = document.querySelector(".dream-list");
-// display logged-in Username
-function displayUserName() {
-    const storedName = localStorage.getItem("username");
-    if (storedName) {
-        userName.textContent = storedName;
-    }
-}
 // initialze
-displayUserName();
+displayUserName(userName);
 renderDreams(dreamList);
 // handle deleting a dream using event delegation
 dreamList.addEventListener("click", (event) => {

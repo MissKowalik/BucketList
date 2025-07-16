@@ -1,19 +1,12 @@
 import { renderDreams, deleteDreamById, toggleDreamChecked } from "../services/dreamService.js";
+import { displayUserName } from "../utils/storage.js";
 
 // selecting elements
 const userName = document.getElementById("user-name") as HTMLSpanElement;
 const dreamList = document.querySelector(".dream-list") as HTMLUListElement;
 
-// display logged-in Username
-function displayUserName(): void {
-    const storedName = localStorage.getItem("username");
-    if (storedName) {
-        userName.textContent = storedName;
-    }
-}
-
 // initialze
-displayUserName();
+displayUserName(userName);
 renderDreams(dreamList);
 
 
