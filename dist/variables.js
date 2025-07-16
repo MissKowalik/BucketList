@@ -1,5 +1,5 @@
 export const themes = ["teknikdrömmar", "vardagsdrömmar", "husdrömmar", "sportdrömmar", "resdrömmar"];
-export let name = "NAMN";
+export let name = "Drömmare";
 export const user = {
     name: ""
 };
