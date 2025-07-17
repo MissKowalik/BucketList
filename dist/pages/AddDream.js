@@ -1,6 +1,6 @@
-import { displayUserName } from "../utils/storage.js";
+import { displayUserName, loadDreams } from "../utils/storage.js";
 import { isDreamValid, isThemeValid } from "../utils/validation.js";
-import { dreams } from "../variables.js";
+import { dreams as defaultDreams } from "../variables.js";
 // selecting elements
 const userName = document.getElementById("user-name");
 const addDreamForm = document.querySelector("form");
@@ -27,6 +27,7 @@ addDreamForm.addEventListener("submit", (event) => {
             checked: false
         };
         // add new dream to dreams array
+        const dreams = loadDreams(defaultDreams);
         dreams.push(newDream);
         localStorage.setItem("dreams", JSON.stringify(dreams)); // saving dreams array to local storage
         alert("Ny dröm lades till i din lista");
