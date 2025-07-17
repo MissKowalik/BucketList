@@ -36,6 +36,9 @@ addDreamForm.addEventListener("submit", (event: Event) => {
 
         // add new dream to dreams array
         dreams.push(newDream);
+        localStorage.setItem("dreams", JSON.stringify(dreams)); // saving dreams array to local storage
+
+        alert("Ny dröm lades till i din lista");
 
         // reset form
         dreamInput.value = "";
