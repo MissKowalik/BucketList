@@ -1,8 +1,8 @@
-// function to validate name input
-export function isNameValid(name: string, errorEl: HTMLElement): boolean {
-    const trimmedUser = name.trim();
+// function to validate string input
+export function isStringValid(name: string, errorEl: HTMLElement): boolean {
+    const trimmedString = name.trim();
 
-    if (trimmedUser === "") {
+    if (trimmedString === "") {
         errorEl.style = "display: block";
         return false;
     } else {
@@ -16,19 +16,6 @@ export function isPwValid(password: string, errorEl: HTMLElement, minLength = 4)
     const trimmedPw = password.trim();
 
     if (trimmedPw.length < minLength || trimmedPw === "") {
-        errorEl.style = "display: block";
-        return false;
-    } else {
-        errorEl.style = "display: none";
-        return true;
-    }
-}
-
-// dream input validation
-export function isDreamValid(dream: string, errorEl: HTMLParagraphElement): boolean {
-    const trimmedDream = dream.trim();
-
-    if (trimmedDream === "") {
         errorEl.style = "display: block";
         return false;
     } else {

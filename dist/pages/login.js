@@ -1,5 +1,5 @@
 import { user } from "../variables.js";
-import { isNameValid, isPwValid } from "../utils/validation.js";
+import { isStringValid, isPwValid } from "../utils/validation.js";
 // selecting form elements
 const loginForm = document.querySelector("form");
 const nameInput = document.getElementById("username");
@@ -17,12 +17,12 @@ toggleBtn === null || toggleBtn === void 0 ? void 0 : toggleBtn.addEventListener
     }
 });
 // live validation
-nameInput.addEventListener("input", () => isNameValid(nameInput.value, nameErrMsg));
+nameInput.addEventListener("input", () => isStringValid(nameInput.value, nameErrMsg));
 pwInput.addEventListener("input", () => isPwValid(pwInput.value, pwErrMss));
 // form submission
 loginForm.addEventListener("submit", (event) => {
     event.preventDefault();
-    const nameValid = isNameValid(nameInput.value, nameErrMsg);
+    const nameValid = isStringValid(nameInput.value, nameErrMsg);
     const pwValid = isPwValid(pwInput.value, pwErrMss);
     if (nameValid && pwValid) {
         user.name = nameInput.value.trim(); // storing username globally

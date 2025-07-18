@@ -1,5 +1,5 @@
 import { displayUserName, loadDreams } from "../utils/storage.js";
-import { isDreamValid, isThemeValid } from "../utils/validation.js";
+import { isStringValid, isThemeValid } from "../utils/validation.js";
 import { dreams as defaultDreams} from "../variables.js";
 
 // selecting elements
@@ -13,14 +13,14 @@ const themeErrMsg = document.getElementById("theme-error-message") as HTMLParagr
 displayUserName(userName);
 
 // live validation 
-dreamInput.addEventListener("input", () => isDreamValid(dreamInput.value, dreamErrMsg));
+dreamInput.addEventListener("input", () => isStringValid(dreamInput.value, dreamErrMsg));
 themeSelect.addEventListener("change", () => isThemeValid(themeSelect.value, themeErrMsg));
 
 // form submission
 addDreamForm.addEventListener("submit", (event: Event) => {
     event.preventDefault();
 
-    const dreamValid = isDreamValid(dreamInput.value, dreamErrMsg);
+    const dreamValid = isStringValid(dreamInput.value, dreamErrMsg);
     const themeValid = isThemeValid(themeSelect.value, themeErrMsg);
 
     if (dreamValid && themeValid) {
